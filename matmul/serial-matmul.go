@@ -1,15 +1,17 @@
 package main
 
 import "fmt"
+import "time"
 
 func main() {
 
 	const val = 2
-	const size = 3
+	const size = 32
 
-	var a [size][size] int
-	var b [size][size] int
-	var c [size][size] int
+	//declare matrix container
+	var a [size][size] float64
+	var b [size][size] float64
+	var c [size][size] float64
 
 	// filling up the variables
 	for i:=0; i<size; i++ {
@@ -18,6 +20,9 @@ func main() {
 			b[i][j] = val
 		}
 	}
+
+	//start counter
+	start := time.Now().UnixNano()
 
 	//test if the content is correct
 	//fmt.Println("a: ", a)
@@ -31,5 +36,7 @@ func main() {
 		}
 	}
 
+	stop := time.Now().UnixNano()
+	fmt.Println((stop - start))
 	fmt.Println("c: ", c)
 }
